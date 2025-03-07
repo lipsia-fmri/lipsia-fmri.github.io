@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semi-blind machine learning - ensemble learning (SML-EL) &mdash; lipsia  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reading data for use in Semi-blind machine learning (SML-EL)" href="vreadconnectome.html" />
+    <link rel="prev" title="LISA single subject analysis using prewhitening (vlisa_prewhitening)" href="../stats/vlisa_prewhitening.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lipsia
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#lipsia-file-format">Lipsia file format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#laminar-specific-fmri-analysis-cylarim-under-construction">Laminar-specific fMRI analysis (Cylarim) - under construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#statistical-inference-lisa-in-examples">Statistical inference (LISA) in examples:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#semi-blind-machine-learning-sml">Semi-blind machine learning (SML):</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#how-to-install-lipsia-using-singularity">How to install LIPSIA using Singularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install-lipsia-from-source-linux-unix-macos">Install LIPSIA from source (Linux/Unix/MacOS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#install-the-necessary-compilers-and-libraries">1) Install the necessary compilers and libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#ubuntu">Ubuntu:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#fedora">Fedora:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#macos">MacOS:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#clone-the-git-repository">2) Clone the git repository:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#execute-the-script-lipsia-setup-sh-in-a-shell">3) Execute the script “lipsia-setup.sh” (in a shell)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#compile-lipsia">4) Compile lipsia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#change-bash-profile">5) Change bash profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install-lipsia-using-docker">Install LIPSIA using Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#install-docker-on-your-local-machine">1) Install docker on your local machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#build-the-dockerfile">3) Build the Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Laminar-specific fMRI (Cylarim)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/index.html">Cylarim overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/index.html#initial-steps">Initial steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/index.html#the-main-steps">The main steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/index.html#example-workflow">Example workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/index.html#contents">Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vcylarim.html">vcylarim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vcylarim_stats.html">vcylarim_stats</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_stats.html#examples">Examples:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vcylarim_getmask.html">vcylarim_getmask</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_getmask.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vcylarim_plot.html">vcylarim_plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_plot.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_plot.html#example-output">Example output:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vrim.html">vrim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vrim.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vrim.html#parameters-of-vrim">Parameters of ‘vrim’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cylarim/vmetric.html">vmetric</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vmetric.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cylarim/vmetric.html#parameters-of-vmetric">Parameters of ‘vmetric’</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vcylarim.html">vcylarim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vcylarim_stats.html">vcylarim_stats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_stats.html#examples">Examples:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vcylarim_plot.html">vcylarim_plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_plot.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_plot.html#example-output">Example output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vcylarim_getmask.html">vcylarim_getmask</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_getmask.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vmetric.html">vmetric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vmetric.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vmetric.html#parameters-of-vmetric">Parameters of ‘vmetric’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cylarim/vrim.html">vrim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vrim.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cylarim/vrim.html#parameters-of-vrim">Parameters of ‘vrim’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LISA statistical inference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_generic.html">LISA generic framework (vlisa_generic)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_generic.html#parameters-of-vlisa-generic">Parameters of ‘vlisa_generic’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_generic.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_2ndlevel.html">LISA second-level GLM (vlisa_2ndlevel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_2ndlevel.html#parameters-of-vlisa-2ndlevel">Parameters of ‘vlisa_2ndlevel’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_2ndlevel.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_onesample.html">LISA onesample test (vlisa_onesample)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_onesample.html#parameters-of-vlisa-onesample">Parameters of ‘vlisa_onesample’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_onesample.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_twosample.html">LISA twosample test (vlisa_twosample)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_twosample.html#parameters-of-vlisa-twosample">Parameters of ‘vlisa_twosample’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_twosample.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_precoloring.html">LISA single subject analysis using precoloring (vlisa_precoloring)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_precoloring.html#parameters-of-vlisa-precoloring">Parameters of ‘vlisa_precoloring’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_precoloring.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_prewhitening.html">LISA single subject analysis using prewhitening (vlisa_prewhitening)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_prewhitening.html#parameters-of-vlisa-prewhitening">Parameters of ‘vlisa_prewhitening’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_prewhitening.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Semi-blind machine learning (SML):</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Semi-blind machine learning - ensemble learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-of-vsml">Parameters of ‘vsml’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vreadconnectome.html">Reading data for use in Semi-blind machine learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vreadconnectome.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vreadconnectome.html#parameters-of-vreadconnectome">Parameters of ‘vreadconnectome’:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vsml_statistics.html">Semi-blind machine learning - ensemble learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vsml_statistics.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vsml_statistics.html#parameters-of-vsml">Parameters of ‘vsml’:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vsml_statistics.html#reference">Reference:</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Task-related edge density (TED)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vcuttrials.html">Cut functional data into trials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vcuttrials.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vcuttrials.html#parameters-of-vcuttrials">Parameters of ‘vcuttrials’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vted.html">Task-based edge density (TED)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vted.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vted.html#parameters-of-vted">Parameters of ‘vted’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vhubness.html">Hubness maps resulting from TED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vhubness.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vhubness.html#parameters-of-vhubness">Parameters of ‘vhubness’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vtedfdr.html">False discovery rates in TED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vtedfdr.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vtedfdr.html#parameters-of-vtedfdr">Parameters of ‘vtedfdr’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Network tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vbcm.html">Bipartite connectivity mapping (BCM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#parameters-of-vbcm">Parameters of ‘vbcm’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vccm.html">Connectivity concordance mapping (CCM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vccm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vccm.html#parameters-of-vccm">Parameters of ‘vccm’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vecm.html">Eigenvector centrality mapping (ECM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#parameters-of-vecm">Parameters of ‘vecm’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prep/vdetrend.html">Detrending</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prep/vdetrend.html#parameters-of-vdetrend">Parameters of ‘vdetrend’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/vpreprocess.html">Spatial smoothing and temporal filtering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prep/vpreprocess.html#parameters-of-vpreprocess">Parameters of ‘vpreprocess’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">File format converters</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conv/vdicom.html">Convert from dicom files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conv/vdicom.html#parameters-of-vdicom">Parameters of ‘vdicom’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../conv/vnifti.html">Convert to/from nifti files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conv/vnifti.html#parameters-of-vnifti">Parameters of <em>vnifti</em></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vapplymask.html">Masking an image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../utils/vapplymask.html#parameters-of-vapplymask">Parameters of ‘vapplymask’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vdenoise.html">Denoising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vsrad.html">Speckle filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat.html">Design file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_first.html">First level design files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_higher.html">Higher-level  level design files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#one-sample-test">One-sample test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#two-sample-test">Two-sample test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#paired-test">Paired test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_higher.html#anova-interactions-and-main-effects-repeated-measures">ANOVA (interactions and main effects, repeated measures)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lipsia</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Semi-blind machine learning - ensemble learning (SML-EL)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sml/vsml.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="semi-blind-machine-learning-ensemble-learning-sml-el">
+<h1>Semi-blind machine learning - ensemble learning (SML-EL)<a class="headerlink" href="#semi-blind-machine-learning-ensemble-learning-sml-el" title="Link to this heading"></a></h1>
+<p>The program <strong>vsml</strong> implements a new approach for predictive modelling based on fMRI.
+The main idea is to supplement fMRI data with readily available non-imaging information so
+that reliable predictive modeling becomes feasible even for smaller sample sizes.</p>
+<p>The difference between <em>vsml</em> and <em>vsm_statistics</em> is that <em>vsm_statistics</em> investigates a number of
+of randomly sampled training and test set pairs so that a statistic about the accuracy of predictions
+can be made. The program <em>vsml</em> on the other hand applies SML to only one specific training and
+test set pair.</p>
+<p>The input into <strong>vsml</strong> are collections of connectomes together with a
+textfiles containing the target variable of interest, e.g. intelligence,
+and additional textfiles containing non-imaging supplementary information.</p>
+<p>The program <strong>vsml</strong> expects as input a list of connectomes for training (parameter ‘-train’),
+and a list of connectomes for testing (parameter ‘-test’).
+The connectomes must be in vista-format. The program <strong>vreadconnectome</strong> can be used to
+convert those inputs into the required format.</p>
+<p>Furthermore, the program <strong>vsml</strong> requires as input a text-file containing the target variable of
+interest (e.g. IQ, parameter ‘-ytrain’).
+This file is used for training. It must contain one number per subject of the training set,
+so that the number of rows in this file equals the number of training connectomes.</p>
+<p>Optionally, a text-file containing the target variable for
+interest for the test set can also be supplied (parameter ‘-ytest’). If available, this information can be used
+to assess the accuracy of the prediction.</p>
+<p>The order in which the connectomes are listed as input into the ‘-train’ and ‘-test’ parameters
+must coincide with the order of the rows in the respective text-files.</p>
+<p>Likewise, <strong>vsml</strong> requires as input text-files containing information about the supplementary info.
+There should be one file for the training set (parameter ‘-xtrain’) and one file for the test set (parameter ‘-xtest’).</p>
+<p>The parameters ‘-dimX’ and ‘-npls’ are used to control the partial least squares regression (PLS),
+where ‘-dimX’ determines the number of features (edges of the connectome) that are input into the PLS,
+while ‘-npls’ determines the number of latent components.
+The parameter -nensembles’ determines the number of ensembles in the ensemble learning process.</p>
+<p>The output is a text-file containing the predicted values of the target variable for the given test set.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vsml</span> <span class="o">-</span><span class="n">train</span> <span class="n">train_</span><span class="o">*.</span><span class="n">v</span> <span class="o">-</span><span class="n">test</span> <span class="n">test_</span><span class="o">*.</span><span class="n">v</span> <span class="o">-</span><span class="n">ytrain</span> <span class="n">IQ_train</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">ytest</span> <span class="n">IQ_test</span><span class="o">.</span><span class="n">txt</span> \
+ <span class="o">-</span><span class="n">xtrain</span> <span class="n">Edu_train</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">xtest</span> <span class="n">Edu_test</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">dimX</span> <span class="mi">800</span> <span class="o">-</span><span class="n">npls</span> <span class="mi">10</span> <span class="o">-</span><span class="n">nensembles</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">seed</span> <span class="mi">12345</span>  \
+ <span class="o">-</span><span class="n">out</span> <span class="n">results</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="parameters-of-vsml">
+<h2>Parameters of ‘vsml’:<a class="headerlink" href="#parameters-of-vsml" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h<var>elp</var></span></kbd></dt>
+<dd><p>Prints usage information.</p>
+</dd>
+<dt><kbd><span class="option">-t<var>rain</var></span></kbd></dt>
+<dd><p>Input fMRI files, training set (Required).</p>
+</dd>
+<dt><kbd><span class="option">-t<var>est</var></span></kbd></dt>
+<dd><p>Input fMRI files, test set (Optional).</p>
+</dd>
+<dt><kbd><span class="option">-o<var>ut</var></span></kbd></dt>
+<dd><p>Output textfile.</p>
+</dd>
+<dt><kbd><span class="option">-y<var>train</var></span></kbd></dt>
+<dd><p>Textfile containing the target variable of the training set.</p>
+</dd>
+<dt><kbd><span class="option">-y<var>test</var></span></kbd></dt>
+<dd><p>Textfile containing the target variable of the test set.</p>
+</dd>
+<dt><kbd><span class="option">-x<var>train</var></span></kbd></dt>
+<dd><p>Textfile containing the supplementary info of the training set.</p>
+</dd>
+<dt><kbd><span class="option">-x<var>test</var></span></kbd></dt>
+<dd><p>Textfile containing the supplementary info of the test set.</p>
+</dd>
+<dt><kbd><span class="option">-d<var>imX</var></span></kbd></dt>
+<dd><p>Number of features per ensemble.</p>
+</dd>
+<dt><kbd><span class="option">-n<var>pls</var></span></kbd></dt>
+<dd><p>Number of components for PLS.</p>
+</dd>
+<dt><kbd><span class="option">-n<var>ensembles</var></span></kbd></dt>
+<dd><p>Number of ensembles.</p>
+</dd>
+<dt><kbd><span class="option">-s<var>eed</var></span></kbd></dt>
+<dd><p>Seed for random number generator.</p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="reference">
+<span id="index-0"></span><h3>Reference:<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Lohmann, G. et al (2023), bioRxiv, Improving the reliability of fMRI-based predictions of intelligence via semi-blind machine learning, <a class="reference external" href="https://doi.org/10.1101/2023.11.03.565485">https://doi.org/10.1101/2023.11.03.565485</a></p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../stats/vlisa_prewhitening.html" class="btn btn-neutral float-left" title="LISA single subject analysis using prewhitening (vlisa_prewhitening)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vreadconnectome.html" class="btn btn-neutral float-right" title="Reading data for use in Semi-blind machine learning (SML-EL)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Gabriele Lohmann.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

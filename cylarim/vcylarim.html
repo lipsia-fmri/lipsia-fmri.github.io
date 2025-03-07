@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vcylarim &mdash; lipsia  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="vcylarim_stats" href="vcylarim_stats.html" />
+    <link rel="prev" title="Cylarim overview" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lipsia
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#lipsia-file-format">Lipsia file format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#laminar-specific-fmri-analysis-cylarim-under-construction">Laminar-specific fMRI analysis (Cylarim) - under construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#statistical-inference-lisa-in-examples">Statistical inference (LISA) in examples:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#semi-blind-machine-learning-sml">Semi-blind machine learning (SML):</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#how-to-install-lipsia-using-singularity">How to install LIPSIA using Singularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install-lipsia-from-source-linux-unix-macos">Install LIPSIA from source (Linux/Unix/MacOS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#install-the-necessary-compilers-and-libraries">1) Install the necessary compilers and libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#ubuntu">Ubuntu:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#fedora">Fedora:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#macos">MacOS:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#clone-the-git-repository">2) Clone the git repository:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#execute-the-script-lipsia-setup-sh-in-a-shell">3) Execute the script “lipsia-setup.sh” (in a shell)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#compile-lipsia">4) Compile lipsia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#change-bash-profile">5) Change bash profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install-lipsia-using-docker">Install LIPSIA using Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#install-docker-on-your-local-machine">1) Install docker on your local machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#build-the-dockerfile">3) Build the Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Laminar-specific fMRI (Cylarim)</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cylarim overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#initial-steps">Initial steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-main-steps">The main steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow">Example workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vcylarim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_stats.html">vcylarim_stats</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_stats.html#examples">Examples:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_getmask.html">vcylarim_getmask</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_getmask.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_plot.html">vcylarim_plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#example-output">Example output:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vrim.html">vrim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vrim.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vrim.html#parameters-of-vrim">Parameters of ‘vrim’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vmetric.html">vmetric</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmetric.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmetric.html#parameters-of-vmetric">Parameters of ‘vmetric’</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vcylarim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vcylarim_stats.html">vcylarim_stats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_stats.html#examples">Examples:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vcylarim_plot.html">vcylarim_plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#example-output">Example output:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vcylarim_getmask.html">vcylarim_getmask</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_getmask.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vmetric.html">vmetric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vmetric.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vmetric.html#parameters-of-vmetric">Parameters of ‘vmetric’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vrim.html">vrim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vrim.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vrim.html#parameters-of-vrim">Parameters of ‘vrim’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LISA statistical inference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_generic.html">LISA generic framework (vlisa_generic)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_generic.html#parameters-of-vlisa-generic">Parameters of ‘vlisa_generic’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_generic.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_2ndlevel.html">LISA second-level GLM (vlisa_2ndlevel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_2ndlevel.html#parameters-of-vlisa-2ndlevel">Parameters of ‘vlisa_2ndlevel’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_2ndlevel.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_onesample.html">LISA onesample test (vlisa_onesample)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_onesample.html#parameters-of-vlisa-onesample">Parameters of ‘vlisa_onesample’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_onesample.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_twosample.html">LISA twosample test (vlisa_twosample)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_twosample.html#parameters-of-vlisa-twosample">Parameters of ‘vlisa_twosample’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_twosample.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_precoloring.html">LISA single subject analysis using precoloring (vlisa_precoloring)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_precoloring.html#parameters-of-vlisa-precoloring">Parameters of ‘vlisa_precoloring’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_precoloring.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/vlisa_prewhitening.html">LISA single subject analysis using prewhitening (vlisa_prewhitening)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/vlisa_prewhitening.html#parameters-of-vlisa-prewhitening">Parameters of ‘vlisa_prewhitening’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stats/vlisa_prewhitening.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Semi-blind machine learning (SML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sml/vsml.html">Semi-blind machine learning - ensemble learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vsml.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vsml.html#parameters-of-vsml">Parameters of ‘vsml’:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sml/vsml.html#reference">Reference:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sml/vreadconnectome.html">Reading data for use in Semi-blind machine learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vreadconnectome.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vreadconnectome.html#parameters-of-vreadconnectome">Parameters of ‘vreadconnectome’:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sml/vsml_statistics.html">Semi-blind machine learning - ensemble learning (SML-EL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vsml_statistics.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vsml_statistics.html#parameters-of-vsml">Parameters of ‘vsml’:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sml/vsml_statistics.html#reference">Reference:</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Task-related edge density (TED)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vcuttrials.html">Cut functional data into trials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vcuttrials.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vcuttrials.html#parameters-of-vcuttrials">Parameters of ‘vcuttrials’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vted.html">Task-based edge density (TED)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vted.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vted.html#parameters-of-vted">Parameters of ‘vted’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vhubness.html">Hubness maps resulting from TED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vhubness.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vhubness.html#parameters-of-vhubness">Parameters of ‘vhubness’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ted/vtedfdr.html">False discovery rates in TED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vtedfdr.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ted/vtedfdr.html#parameters-of-vtedfdr">Parameters of ‘vtedfdr’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Network tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vbcm.html">Bipartite connectivity mapping (BCM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#parameters-of-vbcm">Parameters of ‘vbcm’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vbcm.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vccm.html">Connectivity concordance mapping (CCM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vccm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vccm.html#parameters-of-vccm">Parameters of ‘vccm’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nets/vecm.html">Eigenvector centrality mapping (ECM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#parameters-of-vecm">Parameters of ‘vecm’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nets/vecm.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prep/vdetrend.html">Detrending</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prep/vdetrend.html#parameters-of-vdetrend">Parameters of ‘vdetrend’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/vpreprocess.html">Spatial smoothing and temporal filtering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../prep/vpreprocess.html#parameters-of-vpreprocess">Parameters of ‘vpreprocess’</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">File format converters</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conv/vdicom.html">Convert from dicom files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conv/vdicom.html#parameters-of-vdicom">Parameters of ‘vdicom’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../conv/vnifti.html">Convert to/from nifti files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conv/vnifti.html#parameters-of-vnifti">Parameters of <em>vnifti</em></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vapplymask.html">Masking an image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../utils/vapplymask.html#parameters-of-vapplymask">Parameters of ‘vapplymask’</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vdenoise.html">Denoising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/vsrad.html">Speckle filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat.html">Design file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_first.html">First level design files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_higher.html">Higher-level  level design files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#one-sample-test">One-sample test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#two-sample-test">Two-sample test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats/designformat_higher.html#paired-test">Paired test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/designformat_higher.html#anova-interactions-and-main-effects-repeated-measures">ANOVA (interactions and main effects, repeated measures)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lipsia</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Cylarim overview</a></li>
+      <li class="breadcrumb-item active">vcylarim</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cylarim/vcylarim.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vcylarim">
+<h1>vcylarim<a class="headerlink" href="#vcylarim" title="Link to this heading"></a></h1>
+<p><strong>vcylarim</strong> is the core tool of the Cylarim package.
+It expects as input an activation map, a rim image and a metric image.
+They can be generated using the cylarim-programs called <strong>vrim</strong> and <strong>vmetric</strong>.
+Optionally, they can also be obtained using the software package LayNii.
+Note that the rim image must use the following codes:
+1:(CSF/GM boundary), 2:(WM/GM boundary), 3:(cortex interior).</p>
+<p>The output of <strong>vcylarim</strong> is a file that contains seven images.
+The first three images contain the GLM-coefficients estimated for the deep, middle and superficial layers.
+The fourth image contains the intercept values. The following three images contain
+z-values of the laminar contrasts (deep-middle), (deep-superficial), (middle-superficial).
+The output of <strong>vcylarim</strong>  is subsequently used by <strong>vcylarim_stats</strong> to compute various laminar statistics.</p>
+<p>The GLM coefficients are estimated separately for each cylinder.
+In most voxels, several cylinders overlap. In these voxels, the GLM coefficients
+estimated of the overlapping cylinders are averaged.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylstats</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">mask</span> <span class="n">mask</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">reso</span> <span class="mf">0.8</span> <span class="mf">0.8</span> <span class="mf">0.8</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here, the input is an activation map (zmap.v), a rim image (rim.v), a metric image (metric.v) and a mask image (mask.v).
+The mask is optional. If present, it will restrict computations to some part of the input image. This may help
+to reduce computation time. It should be a binary image.  The program <strong>vcylarim_getmask</strong> can help to
+obtain useful masks.
+The parameter “-radius” specifies the radii of the cylinders in mm.
+The parameter “-equivol” specifies whether or not equivolume correction should be applied to each cylinder.</p>
+<p>The parameter “-reso” specifies the original voxel resolution prior to upsampling. If specified, it will be used
+to adjust the effective degrees of freedom.
+Alternatively, it is also possible to do permutation testing by specifying “-permtest true”. In this case, there is
+no need to supply the original resolution. Permutation testing is statistically better justified, but also computationally
+more expensive.</p>
+<p><strong>vcylarim</strong> implements parallel computations uses openmp. The number of processors to use can be specified with
+the parameter “-j”. The output (cylbeta.v) contains several images as explained above.
+This file can be analyzed in subsequent processing steps using <strong>cylarim_stats</strong>.</p>
+</section>
+<section id="parameters-of-vcylarim">
+<h2>Parameters of ‘vcylarim’<a class="headerlink" href="#parameters-of-vcylarim" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">help</span>     <span class="n">Prints</span> <span class="n">usage</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">-</span><span class="ow">in</span>       <span class="n">Input</span> <span class="n">file</span><span class="o">.</span>
+<span class="o">-</span><span class="n">out</span>      <span class="n">Output</span> <span class="n">file</span><span class="o">.</span>
+<span class="o">-</span><span class="n">mask</span>     <span class="n">Region</span> <span class="n">of</span> <span class="n">interest</span> <span class="n">mask</span> <span class="p">(</span><span class="n">Optional</span><span class="p">)</span>
+<span class="o">-</span><span class="n">metric</span>   <span class="n">Metric</span> <span class="n">image</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+<span class="o">-</span><span class="n">rim</span>      <span class="n">Rim</span> <span class="n">image</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+<span class="o">-</span><span class="n">radius</span>   <span class="n">Cylinder</span> <span class="n">radius</span> <span class="ow">in</span> <span class="n">mm</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">2</span>
+<span class="o">-</span><span class="n">equivol</span>  <span class="n">Whether</span> <span class="n">to</span> <span class="n">apply</span> <span class="n">equivolume</span> <span class="n">correction</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">permtest</span> <span class="n">Whether</span> <span class="n">to</span> <span class="n">do</span> <span class="n">permutation</span> <span class="n">testing</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">reso</span>     <span class="n">Original</span> <span class="n">resolution</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">upsampling</span> <span class="n">factor</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="o">-</span><span class="n">j</span>        <span class="n">Number</span> <span class="n">of</span> <span class="n">processors</span> <span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="n">to</span> <span class="n">use</span> <span class="nb">all</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<span class="target" id="index-0"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cylarim overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vcylarim_stats.html" class="btn btn-neutral float-right" title="vcylarim_stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Gabriele Lohmann.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
