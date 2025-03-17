@@ -330,10 +330,14 @@
 <section id="how-to-install-lipsia-using-singularity">
 <h2>How to install LIPSIA using Singularity<a class="headerlink" href="#how-to-install-lipsia-using-singularity" title="Link to this heading"></a></h2>
 <p>The easiest way to install Lipsia is via a singularity container. To build a singularity container for lipsia, execute the following command:</p>
-<p>&gt; singularity build lipsia.sif ./singularity-recipe.txt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">build</span> <span class="n">lipsia</span><span class="o">.</span><span class="n">sif</span> <span class="o">./</span><span class="n">singularity</span><span class="o">-</span><span class="n">recipe</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
 <p>This creates a container called “lipsia.sif”. Its size is around 220 MByte.
 To execute programs within this container, do the following:</p>
-<p>&gt; ./lipsia.sif exec vsml</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">lipsia</span><span class="o">.</span><span class="n">sif</span> <span class="n">exec</span> <span class="n">vsml</span>
+</pre></div>
+</div>
 <p>This will execute the lipsia-program called “vsml”. Other lipsia-programs can be called in a similar way.</p>
 </section>
 <section id="install-lipsia-from-source-linux-unix-macos">

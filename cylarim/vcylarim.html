@@ -340,12 +340,12 @@ The fourth image contains the intercept values. The following three images conta
 z-values of the laminar contrasts (deep-middle), (deep-superficial), (middle-superficial).
 The output of <strong>vcylarim</strong>  is subsequently used by <strong>vcylarim_stats</strong> to compute various laminar statistics.</p>
 <p>The GLM coefficients are estimated separately for each cylinder.
-In most voxels, several cylinders overlap. In these voxels, the GLM coefficients
-estimated of the overlapping cylinders are averaged.</p>
+In most voxels, several cylinders overlap. In these voxels, the GLM coefficients and results of t-tests between
+slabs are averaged.</p>
 <section id="example">
 <h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylstats</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">mask</span> <span class="n">mask</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">reso</span> <span class="mf">0.8</span> <span class="mf">0.8</span> <span class="mf">0.8</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">3</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylstats</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">mask</span> <span class="n">mask</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">glm</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -355,11 +355,14 @@ to reduce computation time. It should be a binary image.  The program <strong>vc
 obtain useful masks.
 The parameter “-radius” specifies the radii of the cylinders in mm.
 The parameter “-equivol” specifies whether or not equivolume correction should be applied to each cylinder.</p>
-<p>The parameter “-reso” specifies the original voxel resolution prior to upsampling. If specified, it will be used
-to adjust the effective degrees of freedom.
-Alternatively, it is also possible to do permutation testing by specifying “-permtest true”. In this case, there is
-no need to supply the original resolution. Permutation testing is statistically better justified, but also computationally
-more expensive.</p>
+<p>The type of model to be used can be specified by the parameter “-type”. If set to “glm”, a GLM is applied.
+Alternatively, this parameter can be set to “-type slabs”. In this case, no GLM is fitted. Instead
+a simple averaging within three slabs (deep,middle,superficial) is done. This is easier and computationally
+less involved.</p>
+<p>The parameter “-nperm 1000” specifies that permutation tests with 1000 permutations are done. These tests
+compare the three layers (deep,middle, superficial) against each other. During the permutations,
+a null distribution is estimated by randomly permuting the cortical depth values.
+If “-nperm” is set to zero, then no permutations are done, and a crude approximations are returned.</p>
 <p><strong>vcylarim</strong> implements parallel computations uses openmp. The number of processors to use can be specified with
 the parameter “-j”. The output (cylbeta.v) contains several images as explained above.
 This file can be analyzed in subsequent processing steps using <strong>cylarim_stats</strong>.</p>
@@ -374,8 +377,8 @@ This file can be analyzed in subsequent processing steps using <strong>cylarim_s
 <span class="o">-</span><span class="n">rim</span>      <span class="n">Rim</span> <span class="n">image</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
 <span class="o">-</span><span class="n">radius</span>   <span class="n">Cylinder</span> <span class="n">radius</span> <span class="ow">in</span> <span class="n">mm</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">2</span>
 <span class="o">-</span><span class="n">equivol</span>  <span class="n">Whether</span> <span class="n">to</span> <span class="n">apply</span> <span class="n">equivolume</span> <span class="n">correction</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
-<span class="o">-</span><span class="n">permtest</span> <span class="n">Whether</span> <span class="n">to</span> <span class="n">do</span> <span class="n">permutation</span> <span class="n">testing</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
-<span class="o">-</span><span class="n">reso</span>     <span class="n">Original</span> <span class="n">resolution</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">upsampling</span> <span class="n">factor</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="o">-</span><span class="n">nperm</span>    <span class="n">Number</span> <span class="n">of</span> <span class="n">permutations</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="o">-</span><span class="nb">type</span>     <span class="n">Type</span> <span class="n">of</span> <span class="n">model</span> <span class="p">[</span> <span class="n">glm</span> <span class="o">|</span> <span class="n">slabs</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">glm</span>
 <span class="o">-</span><span class="n">j</span>        <span class="n">Number</span> <span class="n">of</span> <span class="n">processors</span> <span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="n">to</span> <span class="n">use</span> <span class="nb">all</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
