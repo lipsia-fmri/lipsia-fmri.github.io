@@ -334,23 +334,31 @@ are called d (deep), m (middle), s (superficial), respectively.
 Below is a list of output options.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>deep ( d)</p></li>
-<li><p>middle ( m )</p></li>
-<li><p>superficial ( s )</p></li>
-<li><p>xdeep  ( 2d - m - s )</p></li>
-<li><p>xmiddle  ( 2m - d - s )</p></li>
-<li><p>xsuperficial   ( 2s - m - s )</p></li>
-<li><p>zdeep  ( conjunction((d-m),(d-s)) )</p></li>
-<li><p>zmiddle  ( conjunction((m-d),(m-s)) )</p></li>
-<li><p>zsuperficial  ( conjunction((s-m),(s-d)) )</p></li>
+<li><p>d   ( deep )</p></li>
+<li><p>m   ( middle )</p></li>
+<li><p>s   ( superficial  )</p></li>
+<li><p>d-m    ( z-stats of twosample test ‘deep-middle’ )</p></li>
+<li><p>d-s    ( z-stats of twosample test ‘deep-superficial’ )</p></li>
+<li><p>m-s    ( z-stats of twosample test ‘middle-superficial’ )</p></li>
+<li><p>m-d    ( z-stats of twosample test ‘middle-deep’ )</p></li>
+<li><p>s-d    ( z-stats of twosample test ‘superficial-deep’ )</p></li>
+<li><p>s-m    ( z-stats of twosample test ‘superficial-middle’ )</p></li>
+<li><p>top_d      ( conjunction, d&gt;m &amp; d&gt;s)</p></li>
+<li><p>top_m      ( conjunction, m&gt;d &amp; m&gt;s )</p></li>
+<li><p>top_s      ( conjunction, s&gt;d &amp; s&gt;m)</p></li>
+<li><p>max_id            ( id of largest beta-value, 1(d), 2(m), 3(s))</p></li>
+<li><p>min_id            ( id of smallest beta-value, 1(d), 2(m), 3(s))</p></li>
+<li><p>max     ( maximum of d,m,s )</p></li>
+<li><p>min     ( minimum of d,m,s )</p></li>
+<li><p>maxabs    ( maximum of absolute values of d,m,s )</p></li>
 </ul>
 </div></blockquote>
 <section id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result1</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">deep</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result1</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">d</span>
 
-<span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result2</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">xmiddle</span>
+<span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result2</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">top_m</span>
 </pre></div>
 </div>
 </div></blockquote>
