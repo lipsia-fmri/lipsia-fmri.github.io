@@ -354,18 +354,16 @@ one on the gray matter GM/WM rim and the other on the GM/CSF rim.
 Voxel pairs are identified by finding the nearest neighbor on the opposite rim for each voxel.
 After excluding redundant pairs, cylinders are defined by dilating the line connecting each pair of
 voxels with a user-specified radius (typically 3mm).</p>
-<p>After the cylinders have been constructed, vcylarim applies a general linear model (GLM) with
-three Gaussian basis functions representing deep, middle and superficial activations.
-The GLM coefficients are estimated using a pseudoinverse, and can then be used to identify
-layer specific activations within each cylinder.</p>
-<p>The output of <strong>vcylarim</strong> is a file that contains the estimated GLM-coefficients.
+<p>After the cylinders have been constructed, vcylarim estimates activation profiles
+for three layers (deep, middle, superficial).</p>
+<p>The output of <strong>vcylarim</strong> is a file that contains the estimated layer coefficients.
 The first three images contain the GLM-coefficients estimated for the deep, middle and superficial layers.
-The fourth image contains the intercept values. The GLM coefficients are estimated separately for each cylinder.
-In most voxels, several cylinders overlap. In these voxels, the GLM coefficients of the overlapping cylinders are averaged.</p>
+The coefficients are estimated separately for each cylinder.
+In most voxels, several cylinders overlap. In these voxels, the coefficients of the overlapping cylinders are averaged.</p>
 <p>Subsequent analysis of the output is performed using <strong>vcylarim_stats</strong>.
 This program generates maps that visualize various contrasts between the beta-images,
 as defined by the user.</p>
-<p>A typical workflow is shown below.</p>
+<p>A typical workflow is shown below. The final step yields a map that shows the contrast “m-d” (middle-deep).</p>
 </section>
 <section id="example-workflow">
 <h2>Example workflow<a class="headerlink" href="#example-workflow" title="Link to this heading"></a></h2>
@@ -374,11 +372,9 @@ as defined by the user.</p>
 
 <span class="n">vmetric</span> <span class="o">-</span><span class="ow">in</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span>
 
-<span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">3</span>
+<span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span>
 
-<span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result1</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">middle</span>
-
-<span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result2</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">notmiddle</span>
+<span class="n">vcylarim_stats</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cylbeta</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">m</span><span class="o">-</span><span class="n">d</span>
 </pre></div>
 </div>
 </div></blockquote>
