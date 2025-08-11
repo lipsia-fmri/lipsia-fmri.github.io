@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cylarim overview &mdash; lipsia  documentation</title>
+  <title>vcylarim_probe &mdash; lipsia  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -16,12 +16,11 @@
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="vcylarim" href="vcylarim.html" />
-    <link rel="prev" title="Installation" href="../install.html" /> 
+    <link rel="next" title="vrim" href="vrim.html" />
+    <link rel="prev" title="vcylarim" href="vcylarim.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -79,18 +78,18 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Laminar-specific fMRI (Cylarim)</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cylarim overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#initial-steps">Initial steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-main-steps">The main steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-workflow">Example workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cylarim overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#initial-steps">Initial steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-main-steps">The main steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow">Example workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="vcylarim.html">vcylarim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcylarim.html#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="vcylarim_probe.html">vcylarim_probe</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_probe.html#parameters-of-vcylarim-probe">Parameters of ‘vcylarim_probe’</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vcylarim_probe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameters-of-vcylarim-probe">Parameters of ‘vcylarim_probe’</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="vrim.html">vrim</a><ul>
@@ -299,9 +298,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Cylarim overview</li>
+          <li class="breadcrumb-item"><a href="index.html">Cylarim overview</a></li>
+      <li class="breadcrumb-item active">vcylarim_probe</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cylarim/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cylarim/vcylarim_probe.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -309,80 +309,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cylarim-overview">
-<h1>Cylarim overview<a class="headerlink" href="#cylarim-overview" title="Link to this heading"></a></h1>
-<p>Cylarim is an innovative software package for laminar fMRI analysis that
-addresses a major limitation of many existing approaches: their reliance on pre-defined regions of interest (ROIs).
-The definition of ROIs often involves arbitrary choices,
-making them difficult to justify and prone to bias.
-To overcome this problem, Cylarim utilizes small, overlapping cylinders that traverse the cortical ribbon,
-enabling a comprehensive mapping of laminar-specific activity across extensive cortical regions.</p>
-<section id="initial-steps">
-<h2>Initial steps<a class="headerlink" href="#initial-steps" title="Link to this heading"></a></h2>
-<p>Cylarim assumes the availability of high-precision segmentations of grey matter, white matter,
-and cerebrospinal fluid (CSF) with a spatial resolution of approximately 0.2mm.
-Data with lower resolution should be upsampled accordingly.</p>
-<p>The initial processing steps are similar to the LayNii software package (Huber et al., 2021).
-Specifically, we extract cortical rims delineating the boundaries between CSF and white matter.
-Subsequently, we derive a normalized ‘metric’ image representing cortical depth, scaled to the range [0,1].
-Cylrim offers two programs for this purpose: <strong>vrim</strong> and <strong>vmetric</strong>.
-The outputs of LayNii may be used as well. Note that it is mandatory that the resulting “rim” image
-uses the following codes: 1(CSF-GM boundary), 2(WM-GM boundary), 3(GM interior),
-with GM(grey matter), WM(white matter), and CSF(cerebral spinal fluid).</p>
-</section>
-<section id="the-main-steps">
-<h2>The main steps<a class="headerlink" href="#the-main-steps" title="Link to this heading"></a></h2>
-<p><strong>vcylarim</strong> is the core tool in this package.
-It first constructs cortical cylinders by connecting pairs of voxels:
-one on the gray matter GM/WM rim and the other on the GM/CSF rim.
-Voxel pairs are identified by finding the nearest neighbor on the opposite rim for each voxel.
-After excluding redundant pairs, cylinders are defined by dilating the line connecting each pair of
-voxels with a user-specified radius (typically 2mm).</p>
-<p>After the cylinders have been constructed, vcylarim analysis activation profiles using
-various methods. For example, vcylarinm can be instructed to compute three depth strata (deep, middle, superficial),
-and perform pairwise t-tests to compare them. Alternatively, it can be instructed to identify
-peaks in the cortical profiles, or identify regions where the profile is concave up or down.
-The output of <strong>vcylarim</strong> is a set of files depending on the various type of analysis selected by the user.</p>
-<p>The output files are 4D images that can be further processed using the program <strong>vcylarim_probe</strong>.
-Alternatively, they can be visualized using out tool <a href="#id1"><span class="problematic" id="id2">**</span></a>vini*, or converted to Nifti-format and analysed using
-other imaging software.</p>
-<p>A typical workflow is shown below. The final step instructs <strong>vcylarim_probe</strong>
-to identify predominant middle layer activations (‘-type top_m’) using a conjunction analysis.</p>
-</section>
-<section id="example-workflow">
-<h2>Example workflow<a class="headerlink" href="#example-workflow" title="Link to this heading"></a></h2>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">segmentation</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span>
-
-<span class="n">vmetric</span> <span class="o">-</span><span class="ow">in</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span>
-
-<span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="n">bins</span> <span class="n">true</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">out</span> <span class="n">cyl</span>
-
-<span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cyl_3bins_zvals</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">top_m</span>
+  <section id="vcylarim-probe">
+<h1>vcylarim_probe<a class="headerlink" href="#vcylarim-probe" title="Link to this heading"></a></h1>
+<p>The program <strong>vcylarim_probe</strong> is used to further analyse the output produced by <strong>vcylarim</strong>.
+The coefficients corresponding to the three depth strata are called d (deep), m (middle), s (superficial), respectively.
+Examples of a typical call to <strong>vcylarim_probe</strong> are shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">outfilename_3bins_zvals</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">middle_dominant</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">top_m</span>
+<span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">outfilename_nbins_coeff</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">xmax</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">max_id</span>
+<span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">outfilename_peak_coeff</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">peaks</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">volume</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</div></blockquote>
-</section>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim.html">vcylarim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim.html#further-analyses">Further Analyses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_probe.html">vcylarim_probe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vrim.html">vrim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmetric.html">vmetric</a></li>
-</ul>
+<p>In the first example, the parameter <code class="docutils literal notranslate"><span class="pre">-type</span> <span class="pre">top_m</span></code> instructs the software to identify predominant middle layer activations
+using a conjunction analysis. The second example outputs the code for the largest bin in each voxel. The smallest code
+has the value ‘1’ and corresponds to the depth stratum closest to the GM/WM border. The largest code value is ‘N’
+corresponding to the number of bins chosen by the user. It represents the bin closest to the GM/CSF border.
+The third example extracts the volume containing profile peaks. Note that that volume numbers begin at ‘0’, so that
+the second volume in the file is addressed as ‘-volume 1’. The first volume contains valleys (not peaks).</p>
+<p>Other types of analyses can also be computed as detailed in the list of parameters below.</p>
+<section id="parameters-of-vcylarim-probe">
+<h2>Parameters of ‘vcylarim_probe’<a class="headerlink" href="#parameters-of-vcylarim-probe" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">help</span>     <span class="n">Prints</span> <span class="n">usage</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">-</span><span class="ow">in</span>       <span class="n">Input</span> <span class="n">file</span><span class="o">.</span>
+<span class="o">-</span><span class="n">out</span>      <span class="n">Output</span> <span class="n">file</span><span class="o">.</span>
+<span class="o">-</span><span class="n">volume</span>   <span class="n">Volume</span> <span class="n">to</span> <span class="n">be</span> <span class="n">selected</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">-</span><span class="n">xinvert</span>  <span class="n">Whether</span> <span class="n">to</span> <span class="n">invert</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">volume</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="nb">type</span>     <span class="n">Type</span> <span class="n">of</span> <span class="n">output</span> <span class="p">[</span> <span class="n">volume</span> <span class="o">|</span> <span class="n">top_d</span> <span class="o">|</span> <span class="n">top_m</span> <span class="o">|</span> <span class="n">top_s</span> <span class="o">|</span> <span class="n">bottom_d</span> <span class="o">|</span> <span class="n">bottom_m</span> <span class="o">|</span> <span class="n">bottom_s</span> <span class="o">|</span> <span class="n">max_id</span> <span class="o">|</span> <span class="n">min_id</span> <span class="o">|</span> <span class="n">maxabs</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">volume</span>
+</pre></div>
 </div>
-</section>
+<span class="target" id="index-0"></span></section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vcylarim.html" class="btn btn-neutral float-right" title="vcylarim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vcylarim.html" class="btn btn-neutral float-left" title="vcylarim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vrim.html" class="btn btn-neutral float-right" title="vrim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

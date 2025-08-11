@@ -16,10 +16,11 @@
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="vcylarim_stats" href="vcylarim_stats.html" />
+    <link rel="next" title="vcylarim_probe" href="vcylarim_probe.html" />
     <link rel="prev" title="Cylarim overview" href="index.html" /> 
 </head>
 
@@ -83,25 +84,13 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#the-main-steps">The main steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow">Example workflow</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">vcylarim</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vcylarim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="vcylarim_stats.html">vcylarim_stats</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_stats.html#examples">Examples:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="vcylarim_getmask.html">vcylarim_getmask</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_getmask.html#example">Example:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="vcylarim_plot.html">vcylarim_plot</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#example">Example:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#example-output">Example output:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_probe.html">vcylarim_probe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_probe.html#parameters-of-vcylarim-probe">Parameters of ‘vcylarim_probe’</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="vrim.html">vrim</a><ul>
@@ -118,14 +107,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">vcylarim</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vcylarim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_stats.html">vcylarim_stats</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vcylarim_stats.html#examples">Examples:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vcylarim_plot.html">vcylarim_plot</a><ul>
@@ -328,44 +312,49 @@
              
   <section id="vcylarim">
 <h1>vcylarim<a class="headerlink" href="#vcylarim" title="Link to this heading"></a></h1>
-<p><strong>vcylarim</strong> is the core tool of the Cylarim package.
-It expects as input an activation map, a rim image and a metric image.
-They can be generated using the cylarim-programs called <strong>vrim</strong> and <strong>vmetric</strong>.
-Optionally, they can also be obtained using the software package LayNii.
+<p>The program <strong>vcylarim</strong> is the core tool of the Cylarim package.
+It requires three primary input images: an <strong>activation map</strong>, a <strong>rim image</strong>
+that delineates gray matter (GM) and its boundaries with white matter (WM) and cerebrospinal fluid (CSF),
+and a <strong>cortical depth map</strong>. The depth map normalizes cortical depth values to a range of <span class="math notranslate nohighlight">\([0,1]\)</span>,
+where ‘0’ represents the GM/WM border and ‘1’ signifies the GM/CSF border.
+Additionally, a user-defined mask can be provided to restrict the analysis to specific brain regions.
 Note that the rim image must use the following codes:
-1:(CSF/GM boundary), 2:(WM/GM boundary), 3:(cortex interior).</p>
-<p>The output of <strong>vcylarim</strong> is a file that contains six images.
-The first three images contain the coefficients estimated for the deep, middle and superficial layers.
-The following three images contain
-z-values of the laminar contrasts (deep-middle), (deep-superficial), (middle-superficial).
-The output of <strong>vcylarim</strong>  is subsequently used by <strong>vcylarim_stats</strong> to compute various laminar statistics.</p>
-<p>The layer coefficients are estimated separately for each cylinder.
-In most voxels, several cylinders overlap. In these voxels, the coefficients are averaged.</p>
-<section id="example">
-<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cylstats</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">mask</span> <span class="n">mask</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">equivol</span> <span class="n">true</span> <span class="o">-</span><span class="nb">type</span> <span class="n">median</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span>
+1:(CSF/GM boundary), 2:(WM/GM boundary), 3:(GM).</p>
+<p>An example of a typical call to <strong>vcylarim</strong> is shown below.
+In this example, <code class="docutils literal notranslate"><span class="pre">zmap.v</span></code> is an fMRI activation map, <code class="docutils literal notranslate"><span class="pre">rim.v</span></code> is the image encoding the cortical rim,
+and <code class="docutils literal notranslate"><span class="pre">metric.v</span></code> is the file that encodes cortical depths. Cylinders of a 2mm radius will be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="mi">3</span><span class="n">bins</span> <span class="n">true</span> <span class="o">-</span><span class="n">peak</span> <span class="n">true</span> <span class="o">-</span><span class="n">out</span> <span class="n">outfilename</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>Here, the input is an activation map (zmap.v), a rim image (rim.v), a metric image (metric.v) and a mask image (mask.v).
-The mask is optional. If present, it will restrict computations to some part of the input image. This may help
-to reduce computation time. It should be a binary image.  The program <strong>vcylarim_getmask</strong> can help to
-obtain useful masks.
-The parameter “-radius” specifies the radii of the cylinders in mm.
-The parameter “-equivol” specifies whether or not equivolume correction should be applied to each cylinder.</p>
-<p>The type of model to be used can be specified by the parameter “-type”. If set to “glm”, a GLM is applied.
-Alternatively, this parameter can be set to “-type slabs”. In this case, no GLM is fitted. Instead
-a simple averaging within three slabs (deep,middle,superficial) is done. This is easier and computationally
-less involved.</p>
-<p>The parameter “-nperm 1000” specifies that permutation tests with 1000 permutations are done. These tests
-compare the three layers (deep, middle, superficial) against each other. During the permutations,
-a null distribution is estimated by randomly permuting the cortical depth values.
-If “-nperm” is set to zero, then no permutations are done, and crude approximations are returned.</p>
-<p><strong>vcylarim</strong> implements parallel computations using openmp. The number of processors to use can be specified with
-the parameter “-j”. The output (cylbeta.v) contains several images as explained above.
-This file can be analyzed in subsequent processing steps using <strong>cylarim_stats</strong>.</p>
+<p>In this command, Cylarim is instructed to perform two separate analyses: <strong>‘3bins’</strong> where vcylarim will
+use three depth strata (‘deep’,’middle’,’superficial’), and conduct pairwise t-tests in which these strata will be
+compared against each other. The other analysis  <strong>‘peak’</strong> yields a 4D image with two volumes where the first volume
+will contain valleys of the cortical depth profiles, and the second volumes contains profile peaks.</p>
+<p>Specifically, the above call generates the following output files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">outfilename_3bins_coeff.v</span></code>: A 4D image where the three volumes represent the median values of the three depth strata,
+spatially resolved within each image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outfilename_3bins_zvals.v</span></code>: A 4D file containing the statistical maps derived from the 1000 random permutations,
+with three volumes (“deep-middle”, “deep-superficial”, “middle-superficial”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outfilename_peak_coeff.v</span></code>: A 4D file with two volumes, one showing depth profile valleys and the other showing depth profile peaks.</p></li>
+</ul>
+<p>These output files can be visualized directly using Lipsia’s own viewer <strong>vini</strong>.
+Alternatively, they can be converted to NIfTI format using the program <strong>vnifti</strong> for use with other standard imaging software.</p>
+<p>If the option ‘-3bins true’ is set to ‘true’, then ‘-nperm’ specifies the the number of random permutations will be performed
+to obtain z-values for the tests to compare the three layers (deep, middle, superficial) against each other.
+During the permutations, a null distribution is estimated by randomly permuting the cortical depth values.
+If “-nperm” is set to zero, then no permutations are done, and crude approximations to these z-values are returned.</p>
+<p>Other types of analyses can also be computed as detailed in the list of parameters below.</p>
 </section>
+<section id="further-analyses">
+<h1>Further Analyses<a class="headerlink" href="#further-analyses" title="Link to this heading"></a></h1>
+<p>The output files from <strong>vcylarim</strong> can be further processed to perform additional analyses.
+For example, to perform a conjunction analysis, the following command using the program <strong>vcylarim_probe</strong> can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">outfilename_3bins_zvals</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">middle_dominant</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">top_m</span>
+</pre></div>
+</div>
+<p>Here, the parameter <code class="docutils literal notranslate"><span class="pre">-type</span> <span class="pre">top_m</span></code> instructs the software to identify predominant middle layer activations using a conjunction analysis.
+For further information, see the documentation of <strong>vcylarim_probe</strong>.</p>
 <section id="parameters-of-vcylarim">
 <h2>Parameters of ‘vcylarim’<a class="headerlink" href="#parameters-of-vcylarim" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">help</span>     <span class="n">Prints</span> <span class="n">usage</span> <span class="n">information</span><span class="o">.</span>
@@ -377,7 +366,14 @@ This file can be analyzed in subsequent processing steps using <strong>cylarim_s
 <span class="o">-</span><span class="n">radius</span>   <span class="n">Cylinder</span> <span class="n">radius</span> <span class="ow">in</span> <span class="n">mm</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">2</span>
 <span class="o">-</span><span class="n">equivol</span>  <span class="n">Whether</span> <span class="n">to</span> <span class="n">apply</span> <span class="n">equivolume</span> <span class="n">correction</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
 <span class="o">-</span><span class="n">nperm</span>    <span class="n">Number</span> <span class="n">of</span> <span class="n">permutations</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">1000</span>
-<span class="o">-</span><span class="nb">type</span>     <span class="n">Type</span> <span class="n">of</span> <span class="n">model</span> <span class="p">[</span> <span class="n">median</span> <span class="o">|</span> <span class="o">|</span> <span class="n">mean</span> <span class="o">|</span> <span class="n">glm</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">median</span>
+<span class="o">-</span><span class="mi">3</span><span class="n">bins</span>    <span class="n">Compute</span> <span class="n">three</span> <span class="n">depth</span> <span class="n">strata</span> <span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">nbins</span>    <span class="n">Compute</span> <span class="n">N</span> <span class="n">depth</span> <span class="n">strata</span> <span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">-</span><span class="n">peak</span>     <span class="n">Compute</span> <span class="n">peaks</span> <span class="ow">and</span> <span class="n">valleys</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">convex</span>   <span class="n">Compute</span> <span class="n">convexity</span><span class="o">/</span><span class="n">concavity</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">linear</span>   <span class="n">Compute</span> <span class="n">linear</span> <span class="n">slopes</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">R2</span>       <span class="n">Compute</span> <span class="n">model</span> <span class="n">fits</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">maxabs</span>   <span class="n">Compute</span> <span class="nb">max</span> <span class="n">absolute</span> <span class="n">z</span><span class="o">-</span><span class="n">values</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">seed</span>     <span class="n">Seed</span> <span class="k">for</span> <span class="n">random</span> <span class="n">number</span> <span class="n">generator</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">5555</span>
 <span class="o">-</span><span class="n">j</span>        <span class="n">Number</span> <span class="n">of</span> <span class="n">processors</span> <span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="n">to</span> <span class="n">use</span> <span class="nb">all</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -389,7 +385,7 @@ This file can be analyzed in subsequent processing steps using <strong>cylarim_s
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Cylarim overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vcylarim_stats.html" class="btn btn-neutral float-right" title="vcylarim_stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vcylarim_probe.html" class="btn btn-neutral float-right" title="vcylarim_probe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
