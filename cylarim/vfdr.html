@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cylarim overview &mdash; lipsia  documentation</title>
+  <title>vfdr &mdash; lipsia  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -16,12 +16,11 @@
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="vcylarim" href="vcylarim.html" />
-    <link rel="prev" title="Installation" href="../install.html" /> 
+    <link rel="next" title="vrim" href="vrim.html" />
+    <link rel="prev" title="vcylarim_seed" href="vcylarim_seed.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -79,15 +78,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Laminar-specific fMRI (Cylarim)</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cylarim overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#initial-steps">Initial steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-main-steps">The main steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-workflow-1">Example workflow 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-workflow-2">Example workflow 2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reference">Reference:</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cylarim overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#initial-steps">Initial steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-main-steps">The main steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow-1">Example workflow 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow-2">Example workflow 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reference">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="vcylarim.html">vcylarim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcylarim.html#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
@@ -107,9 +106,9 @@
 <li class="toctree-l4"><a class="reference internal" href="vcylarim_seed.html#parameters-of-vcylarim-seed">Parameters of ‘vcylarim_seed’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="vfdr.html">vfdr</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vfdr.html#example">Example:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vfdr.html#parameters-of-vfdr">Parameters of ‘vfdr’</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vfdr</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters-of-vfdr">Parameters of ‘vfdr’</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="vrim.html">vrim</a><ul>
@@ -312,9 +311,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Cylarim overview</li>
+          <li class="breadcrumb-item"><a href="index.html">Cylarim overview</a></li>
+      <li class="breadcrumb-item active">vfdr</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cylarim/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cylarim/vfdr.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -322,123 +322,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cylarim-overview">
-<h1>Cylarim overview<a class="headerlink" href="#cylarim-overview" title="Link to this heading"></a></h1>
-<p>Cylarim is an innovative software package for laminar fMRI analysis that
-addresses a major limitation of many existing approaches: their reliance on pre-defined regions of interest (ROIs).
-The definition of ROIs often involves arbitrary choices,
-making them difficult to justify and prone to bias.
-To overcome this problem, Cylarim utilizes small, overlapping cylinders that traverse the cortical ribbon,
-enabling a comprehensive mapping of laminar-specific activity across extensive cortical regions.</p>
-<section id="initial-steps">
-<h2>Initial steps<a class="headerlink" href="#initial-steps" title="Link to this heading"></a></h2>
-<p>Cylarim assumes the availability of high-precision segmentations of grey matter, white matter,
-and cerebrospinal fluid (CSF) with a spatial resolution of approximately 0.2mm.
-Data with lower resolution should be upsampled accordingly.</p>
-<p>The initial processing steps are similar to the LayNii software package (Huber et al., 2021).
-Specifically, we extract cortical rims delineating the boundaries between CSF and white matter.
-Subsequently, we derive a normalized ‘metric’ image representing cortical depth, scaled to the range [0,1].
-Cylrim offers two programs for this purpose: <strong>vrim</strong> and <strong>vmetric</strong>.
-The outputs of LayNii may be used as well. Note that it is mandatory that the resulting “rim” image
-uses the following codes: 1(CSF-GM boundary), 2(WM-GM boundary), 3(GM interior),
-with GM(grey matter), WM(white matter), and CSF(cerebral spinal fluid).</p>
-</section>
-<section id="the-main-steps">
-<h2>The main steps<a class="headerlink" href="#the-main-steps" title="Link to this heading"></a></h2>
-<p><strong>vcylarim</strong> is the core tool in this package.
-It first constructs cortical cylinders by connecting pairs of voxels:
-one on the gray matter GM/WM rim and the other on the GM/CSF rim.
-Voxel pairs are identified by finding the nearest neighbor on the opposite rim for each voxel.
-After excluding redundant pairs, cylinders are defined by dilating the line connecting each pair of
-voxels with a user-specified radius (typically 2mm).</p>
-<p>After the cylinders have been constructed, vcylarim analyses activation profiles using
-various methods. For example, vcylarim can be instructed to compute three depth strata (deep, middle, superficial),
-and perform pairwise t-tests to compare them. Alternatively, it can be instructed to identify
-peaks in the cortical profiles, or identify regions where the profile is concave up or down.
-The output of <strong>vcylarim</strong> is a set of files depending on the various type of analysis selected by the user.</p>
-<p>The output files are 4D images that can be further processed using the program <strong>vcylarim_probe</strong>.</p>
-<p>Some typical workflows are shown below.</p>
-</section>
-<section id="example-workflow-1">
-<h2>Example workflow 1<a class="headerlink" href="#example-workflow-1" title="Link to this heading"></a></h2>
+  <section id="vfdr">
+<h1>vfdr<a class="headerlink" href="#vfdr" title="Link to this heading"></a></h1>
+<p>The program  <strong>vfdr</strong> is used for controlling the
+false discovery rate (FDR) based on the Benjamini-Hochberg procedure.</p>
+<p>The input image must be a map containing z-values that result from a statistical
+analysis procedure such as a standard GLM contrast. In the context of cylarim,
+the input into vfdr typically results from permutation testing of laminar profiles.
+The output is a 3D image corrected for multiple comparisons using FDR.</p>
+<p>The FDR significance level can be adjusted using the parameter <strong>-alpha</strong>. If <strong>-alpha</strong> is
+set to ‘1’, no correction is performed.</p>
+<p>If the parameter <strong>-dependence</strong> is set to “true”, then the output is modified
+to account for spatial dependencies in the data using
+the Benjamini-Yekutieli Procedure. In this context of cylarim, this is usually not needed.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">segmentation</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="mi">3</span><span class="n">bins</span> <span class="n">true</span> <span class="o">-</span><span class="n">out</span> <span class="n">outfilename</span>
 
-<span class="n">vmetric</span> <span class="o">-</span><span class="ow">in</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span>
+<span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">outfilename_3bins_zvals</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">middle_dominant</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">top_m</span>
 
-<span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="n">bins</span> <span class="n">true</span> <span class="o">-</span><span class="n">nperm</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">out</span> <span class="n">cyl</span>
-
-<span class="n">vcylarim_probe</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cyl_3bins_zvals</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="nb">type</span> <span class="n">bottom_m</span>
-
-<span class="n">vfdr</span> <span class="o">-</span><span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result_fdrcorrected</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">alpha</span> <span class="mf">0.01</span>
-
-<span class="n">vnifti</span> <span class="o">-</span><span class="ow">in</span> <span class="n">result_fdrcorrected</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">result_fdrcorrected</span><span class="o">.</span><span class="n">nii</span>
+<span class="n">vfdr</span> <span class="o">-</span><span class="ow">in</span> <span class="n">middle_dominant</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">middle_dominant_corrected</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">alpha</span> <span class="mf">0.01</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>In this example, the cortical ribbon is divided into three depth strata (‘deep’, ‘middle’, ‘superficial’),
-and two-sample tests are performed to obtain three contrasts:
-deep-middle, deep-superficial, and middle-superficial.
-Z-values uncorrected for multiple comparisons
-are obtained using permutation tests by randomly reassigning cortical depth values.</p>
-<p>The program <strong>vcylarim_probe</strong> then
-identifies predominant deep layer activations (‘-type bottom_m’) using a conjunction analysis
-in which the conjunction between the contrasts ‘deep-middle’ and ‘deep-superficial’
-is computed.
-Finally, the resulting map is corrected for the false discovery rate (FDR) using a significance level of 0.01.
-The output image can be visualized either using the program <strong>vini</strong> or converted to
-nifti and visualized using other imaging software.</p>
 </section>
-<section id="example-workflow-2">
-<h2>Example workflow 2<a class="headerlink" href="#example-workflow-2" title="Link to this heading"></a></h2>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">segmentation</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span>
-
-<span class="n">vmetric</span> <span class="o">-</span><span class="ow">in</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span>
-
-<span class="n">vcylarim</span> <span class="o">-</span><span class="ow">in</span> <span class="n">zmap</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">rim</span> <span class="n">rim</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">metric</span> <span class="n">metric</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">radius</span> <span class="mi">2</span> <span class="o">-</span><span class="n">peaks</span> <span class="n">true</span> <span class="o">-</span><span class="n">out</span> <span class="n">cyl</span>
-
-<span class="n">vnifti</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cyl_peaks_coeff</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span><span class="n">out</span> <span class="n">cyl_peaks_coeff</span><span class="o">.</span><span class="n">nii</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>In this example, the locations of peaks and valleys are estimated in each cylinder.
-It involves fitting a fourth-order Chebyshev polynomial to the z-values within each cylinder
-using a least-squares approach.
-The largest and smallest points of the fitted curve within the interval [0,1] are then
-identified and reported as the output.
-The resulting file “cyl_peaks_coeff.v” contains two volumes. The first volume
-shows the location of valleys, the second shows the location of peaks.</p>
-<section id="reference">
-<h3>Reference:<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
-<blockquote>
-<div><p>Lohmann, G. et al (2025), bioRxiv, Beyond ROIs: Laminar fMRI Mapping with Cylarim, <a class="reference external" href="https://doi.org/10.1101/2025.03.25.645237">https://doi.org/10.1101/2025.03.25.645237</a></p>
-</div></blockquote>
-</section>
-</section>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim.html">vcylarim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim.html#further-analyses">Further Analyses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_probe.html">vcylarim_probe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_roi.html">vcylarim_roi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_seed.html">vcylarim_seed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vfdr.html">vfdr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vrim.html">vrim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmetric.html">vmetric</a></li>
-</ul>
-</div>
-</section>
+<section id="parameters-of-vfdr">
+<h2>Parameters of ‘vfdr’<a class="headerlink" href="#parameters-of-vfdr" title="Link to this heading"></a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-h<var>elp</var></span></kbd></dt>
+<dd><p>Prints usage information.</p>
+</dd>
+<dt><kbd><span class="option">-i<var>n</var></span></kbd></dt>
+<dd><p>Input file.</p>
+</dd>
+<dt><kbd><span class="option">-o<var>ut</var></span></kbd></dt>
+<dd><p>Output file.</p>
+</dd>
+<dt><kbd><span class="option">-a<var>lpha</var></span></kbd></dt>
+<dd><p>FDR significance level. Default: 0.05</p>
+</dd>
+<dt><kbd><span class="option">-d<var>ependence</var></span></kbd></dt>
+<dd><p>Dependence correction. Default: false</p>
+</dd>
+</dl>
+<span class="target" id="index-0"></span></section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vcylarim.html" class="btn btn-neutral float-right" title="vcylarim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vcylarim_seed.html" class="btn btn-neutral float-left" title="vcylarim_seed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vrim.html" class="btn btn-neutral float-right" title="vrim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

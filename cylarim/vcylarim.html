@@ -82,7 +82,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cylarim overview</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#initial-steps">Initial steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#the-main-steps">The main steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow">Example workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow-1">Example workflow 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example-workflow-2">Example workflow 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reference">Reference:</a></li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">vcylarim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#further-analyses">Further Analyses</a><ul>
@@ -91,6 +95,21 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="vcylarim_probe.html">vcylarim_probe</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vcylarim_probe.html#parameters-of-vcylarim-probe">Parameters of ‘vcylarim_probe’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_roi.html">vcylarim_roi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_roi.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_roi.html#parameters-of-vcylarim-roi">Parameters of ‘vcylarim_roi’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcylarim_seed.html">vcylarim_seed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_seed.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcylarim_seed.html#parameters-of-vcylarim-seed">Parameters of ‘vcylarim_seed’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vfdr.html">vfdr</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vfdr.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vfdr.html#parameters-of-vfdr">Parameters of ‘vfdr’</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="vrim.html">vrim</a><ul>
@@ -110,12 +129,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">vcylarim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vcylarim_plot.html">vcylarim_plot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#example">Example:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#example-output">Example output:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vcylarim_getmask.html">vcylarim_getmask</a><ul>
@@ -344,7 +357,9 @@ Alternatively, they can be converted to NIfTI format using the program <strong>v
 to obtain z-values for the tests to compare the three layers (deep, middle, superficial) against each other.
 During the permutations, a null distribution is estimated by randomly permuting the cortical depth values.
 If “-nperm” is set to zero, then no permutations are done, and crude approximations to these z-values are returned.</p>
-<p>Other types of analyses can also be computed as detailed in the list of parameters below.</p>
+<p>Other types of analyses can be computed as well. For example, by setting  <strong>-concave true</strong>, a 3D image is computed
+which shows the fraction of points per cylinder where the depth profile is “concave up”.</p>
+<p>A complete list of analysis options is given below.</p>
 </section>
 <section id="further-analyses">
 <h1>Further Analyses<a class="headerlink" href="#further-analyses" title="Link to this heading"></a></h1>
@@ -369,7 +384,7 @@ For further information, see the documentation of <strong>vcylarim_probe</strong
 <span class="o">-</span><span class="mi">3</span><span class="n">bins</span>    <span class="n">Compute</span> <span class="n">three</span> <span class="n">depth</span> <span class="n">strata</span> <span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
 <span class="o">-</span><span class="n">nbins</span>    <span class="n">Compute</span> <span class="n">N</span> <span class="n">depth</span> <span class="n">strata</span> <span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
 <span class="o">-</span><span class="n">peak</span>     <span class="n">Compute</span> <span class="n">peaks</span> <span class="ow">and</span> <span class="n">valleys</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
-<span class="o">-</span><span class="n">convex</span>   <span class="n">Compute</span> <span class="n">convexity</span><span class="o">/</span><span class="n">concavity</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span><span class="n">concave</span>  <span class="n">Compute</span> <span class="n">concave</span> <span class="n">up</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
 <span class="o">-</span><span class="n">linear</span>   <span class="n">Compute</span> <span class="n">linear</span> <span class="n">slopes</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
 <span class="o">-</span><span class="n">R2</span>       <span class="n">Compute</span> <span class="n">model</span> <span class="n">fits</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
 <span class="o">-</span><span class="n">maxabs</span>   <span class="n">Compute</span> <span class="nb">max</span> <span class="n">absolute</span> <span class="n">z</span><span class="o">-</span><span class="n">values</span> <span class="p">[</span> <span class="n">true</span> <span class="o">|</span> <span class="n">false</span> <span class="p">]</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span>
