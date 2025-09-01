@@ -49,7 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#lipsia-file-format">Lipsia file format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#laminar-specific-fmri-analysis-cylarim-under-construction">Laminar-specific fMRI analysis (Cylarim) - under construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#laminar-specific-fmri-analysis-cylarim">Laminar-specific fMRI analysis (Cylarim)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#statistical-inference-lisa-in-examples">Statistical inference (LISA) in examples:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#semi-blind-machine-learning-sml">Semi-blind machine learning (SML):</a></li>
 </ul>
@@ -357,6 +357,10 @@ and perform pairwise t-tests to compare them. Alternatively, it can be instructe
 peaks in the cortical profiles, or identify regions where the profile is concave up or down.
 The output of <strong>vcylarim</strong> is a set of files depending on the various type of analysis selected by the user.</p>
 <p>The output files are 4D images that can be further processed using the program <strong>vcylarim_probe</strong>.</p>
+<p>The input images can be either in Lipsia’s own ‘vista’-format (<em>.v), or in nifti-format (</em>.nii).
+The output images are always in ‘vista’-format. They can be visualized using the viewer
+<strong>vini</strong> (github.com/MPI-Neuroinformatics/vini), or converted to nifti using the program <strong>vnifti</strong>
+and visualized using other neuroimaging tools.</p>
 <p>Some typical workflows are shown below.</p>
 </section>
 <section id="example-workflow-1">

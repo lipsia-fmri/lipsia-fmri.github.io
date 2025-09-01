@@ -48,7 +48,7 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#lipsia-file-format">Lipsia file format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#laminar-specific-fmri-analysis-cylarim-under-construction">Laminar-specific fMRI analysis (Cylarim) - under construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#laminar-specific-fmri-analysis-cylarim">Laminar-specific fMRI analysis (Cylarim)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#statistical-inference-lisa-in-examples">Statistical inference (LISA) in examples:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#semi-blind-machine-learning-sml">Semi-blind machine learning (SML):</a></li>
 </ul>
@@ -325,11 +325,14 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
 <section id="how-to-install-lipsia-using-singularity">
 <h2>How to install LIPSIA using Singularity<a class="headerlink" href="#how-to-install-lipsia-using-singularity" title="Link to this heading"></a></h2>
-<p>The easiest way to install Lipsia is via a singularity container. To build a singularity container for lipsia, execute the following command:</p>
+<p>The easiest way is to download an existing singularity container. It is available for download from:
+<a class="reference external" href="https://keeper.mpdl.mpg.de/d/3c0f3564099145de8ccb/">https://keeper.mpdl.mpg.de/d/3c0f3564099145de8ccb/</a></p>
+<p>The container file is called “lipsia_4.1.1.sif”. Its size is about 245 MByte.</p>
+<p>Alternatively, one can build a new singularity container for lipsia, execute the following command:</p>
 <p>&gt; singularity build lipsia.sif ./singularity-recipe.txt</p>
-<p>This creates a container called “lipsia.sif”. Its size is around 220 MByte.
-To execute programs within this container, do the following:</p>
-<p>&gt; ./lipsia.sif shell vcylarim</p>
+<p>This creates a new container called “lipsia.sif”.</p>
+<p>To execute programs within a singularity container, do the following:</p>
+<p>&gt; singularity exec lipsia_4.1.1.sif vcylarim</p>
 <p>This will execute the lipsia-program called “vcylarim”. Other lipsia-programs can be called in a similar way.</p>
 </section>
 <section id="install-lipsia-from-source-linux-unix-macos">

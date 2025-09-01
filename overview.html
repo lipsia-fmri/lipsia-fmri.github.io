@@ -48,7 +48,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lipsia-file-format">Lipsia file format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#laminar-specific-fmri-analysis-cylarim-under-construction">Laminar-specific fMRI analysis (Cylarim) - under construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#laminar-specific-fmri-analysis-cylarim">Laminar-specific fMRI analysis (Cylarim)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#statistical-inference-lisa-in-examples">Statistical inference (LISA) in examples:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#semi-blind-machine-learning-sml">Semi-blind machine learning (SML):</a></li>
 </ul>
@@ -81,27 +81,34 @@
 <li class="toctree-l1"><a class="reference internal" href="cylarim/index.html">Cylarim overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#initial-steps">Initial steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#the-main-steps">The main steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#example-workflow">Example workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#example-workflow-1">Example workflow 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#example-workflow-2">Example workflow 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/index.html#reference">Reference:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="cylarim/index.html#contents">Contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim.html">vcylarim</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim.html#example">Example:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim.html">vcylarim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim.html#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_stats.html">vcylarim_stats</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_stats.html#examples">Examples:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_probe.html">vcylarim_probe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_probe.html#parameters-of-vcylarim-probe">Parameters of ‘vcylarim_probe’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_getmask.html">vcylarim_getmask</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_getmask.html#example">Example:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_getmask.html#parameters-of-vcylarim-getmask">Parameters of ‘vcylarim_getmask’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_roi.html">vcylarim_roi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_roi.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_roi.html#parameters-of-vcylarim-roi">Parameters of ‘vcylarim_roi’</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_plot.html">vcylarim_plot</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_plot.html#example">Example:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_plot.html#example-output">Example output:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vcylarim_seed.html">vcylarim_seed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_seed.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vcylarim_seed.html#parameters-of-vcylarim-seed">Parameters of ‘vcylarim_seed’</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cylarim/vfdr.html">vfdr</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vfdr.html#example">Example:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cylarim/vfdr.html#parameters-of-vfdr">Parameters of ‘vfdr’</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cylarim/vrim.html">vrim</a><ul>
@@ -118,20 +125,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim.html">vcylarim</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim.html#example">Example:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim.html">vcylarim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim.html#further-analyses">Further Analyses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim.html#parameters-of-vcylarim">Parameters of ‘vcylarim’</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim_stats.html">vcylarim_stats</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim_stats.html#examples">Examples:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim_stats.html#parameters-of-vcylarim-stats">Parameters of ‘vcylarim_stats’</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim_plot.html">vcylarim_plot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim_plot.html#example">Example:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim_plot.html#example-output">Example output:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cylarim/vcylarim_plot.html#parameters-of-vcylarim-plot">Parameters of ‘vcylarim_plot’</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cylarim/vcylarim_getmask.html">vcylarim_getmask</a><ul>
@@ -368,28 +364,24 @@ you can convert it to NIfTI format using the following command:</p>
 </div>
 <p><em>Reference:</em></p>
 <dl class="simple">
-<dt>Lohmann, G. (2010), “Eigenvector centrality mapping for analyzing connectivity patterns in fMRI data of the human brain”</dt><dd><p>PLoS ONE, <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0010232">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0010232</a>&gt;</p>
+<dt>Lohmann, G. et al. (2010), “Eigenvector centrality mapping for analyzing connectivity patterns in fMRI data of the human brain”</dt><dd><p>PLoS ONE, <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0010232">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0010232</a>&gt;</p>
 </dd>
 </dl>
 </section>
-<section id="laminar-specific-fmri-analysis-cylarim-under-construction">
-<h2>Laminar-specific fMRI analysis (Cylarim) - under construction<a class="headerlink" href="#laminar-specific-fmri-analysis-cylarim-under-construction" title="Link to this heading"></a></h2>
-<p>Laminar-specific fMRI is implemented in several programs: <strong>vrim</strong>, <strong>vmetric</strong>, <strong>vcylarim</strong> and <strong>vcylarim_stats</strong>.
-The programs <strong>vrim</strong> and <strong>vmetric</strong> implement preparatory steps used for generating a rim image and a metric image.
-The program <strong>vcylarim</strong> expects as input an activation map, a rim image and
-a metric image. Optionally, a brain mask may be used to restrict the analysis to certain parts of the cortex.
-The rim image must have the following codes: 1(CSF-cortex boundary), 2:(WM-cortex boundary), 3: (cortex interior).
-These images may be generated by the software package LayNii. They can also be generated using the</p>
-<p>The cylinder radius is specified using the parameter “-radius”. The output of  <strong>vcylarim</strong> is a file containing
-the GLM coefficients. In a second step (<strong>cylarim_stats</strong>), this file is used to
-compute contrasts between the GLM coefficients.</p>
-<blockquote>
-<div><p><em>Example usage:</em></p>
-<blockquote>
-<div><p>vcylarim -in zmap.v -metric metric.v -mask mask.v -rim rim.v -radius 3 -out cylbeta.v</p>
-<p>vcylarim_stats -in cylbeta.v -out result.v -type middle</p>
-</div></blockquote>
-</div></blockquote>
+<section id="laminar-specific-fmri-analysis-cylarim">
+<h2>Laminar-specific fMRI analysis (Cylarim)<a class="headerlink" href="#laminar-specific-fmri-analysis-cylarim" title="Link to this heading"></a></h2>
+<p>Cylarim is an innovative software for laminar fMRI analysis that
+addresses a major limitation of many existing approaches: their reliance on pre-defined regions of interest (ROIs).
+The definition of ROIs often involves arbitrary choices,
+making them difficult to justify and prone to bias.
+To overcome this problem, Cylarim utilizes small, overlapping cylinders that traverse the cortical ribbon,
+enabling a comprehensive mapping of laminar-specific activity across extensive cortical regions.</p>
+<p>The program <strong>vcylarim</strong> is the core tool of this package. It generates the cylinders and produces
+various statistics based on the cylinder structure. Several other programs are used in preparatory steps,
+or are used to further refine the output produced by “vcylarim”.</p>
+<p>For a more detailed description see (<a class="reference internal" href="cylarim/index.html"><span class="doc">Cylarim overview</span></a>).</p>
+<p><em>Reference:</em></p>
+<p>Lohmann, G. et al (2025), bioRxiv, Beyond ROIs: Laminar fMRI Mapping with Cylarim, <a class="reference external" href="https://doi.org/10.1101/2025.03.25.645237">https://doi.org/10.1101/2025.03.25.645237</a></p>
 </section>
 <section id="statistical-inference-lisa-in-examples">
 <h2>Statistical inference (LISA) in examples:<a class="headerlink" href="#statistical-inference-lisa-in-examples" title="Link to this heading"></a></h2>
